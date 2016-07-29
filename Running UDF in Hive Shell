@@ -1,0 +1,13 @@
+//creation of jar
+jar -cvf <jar_name> *.class 
+
+//adding jar into hive shell
+add jar <JAR_PATH>;
+//creating temporary function in hive
+//class name should be in single quotations
+CREATE TEMPORARY FUNCTION <FUNCTION_NAME> AS 'WeekOfTheMonth';
+//example
+CREATE TEMPORARY FUNCTION  TEST  AS  'WeekOfTheMonth';
+//quering
+select TEST(date) from <table_name> limit 10;
+
